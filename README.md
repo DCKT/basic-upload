@@ -20,7 +20,8 @@ app.post('/pictures/new', function(req, res) {
   const product = req.body.pictures;
 
   upload({
-    file: req.files.picture, 
+    file: req.files.picture,  // unique file
+    files: req.files.gallery, // array of file
     parentDirectory: 'pictures', 
     dirname: product.ref
   })
