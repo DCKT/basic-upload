@@ -25,10 +25,28 @@ app.post('/pictures/new', function(req, res) {
     dirname: product.ref
   })
     .then(filesUploaded => {
-      
+      Picture.create({
+        path: filesUploaded[0].path,
+        name: filesUploaded[0].fileName,
+      })
+        .then(() => {
+          res.redirect('/');
+        });
     })
     .catch(err => {
       console.error(err);
     })
 });
 ```
+
+## API
+
+**function upload(params)**
+params is an object who can hold :
+
+- file: unique file
+- files: array of files
+- parentDirectory: name of the parent directory
+- dirname : name of the directory where the files will be uploaded
+
+The function resolve a filesUploaded variable which is an array of object who contain the filename and the path for each file.
