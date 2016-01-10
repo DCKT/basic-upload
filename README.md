@@ -14,6 +14,9 @@ The files are stored in the directory **uploads** at the top of your application
 ```js
 const upload = require('basic-upload');
 
+// /uploads deserve static files
+app.use(express.static(path.join(__dirname, '../uploads')));
+
 // assuming an express app
 // don't forget to enable multipart/form-data 
 app.post('/pictures/new', function(req, res) {
