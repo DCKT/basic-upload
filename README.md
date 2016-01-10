@@ -1,17 +1,34 @@
-# How old I am ? 
+# Basic upload
 
-Get your age dynamicatly
+Upload file easly, that's it !
 
+## Requirement
+You need to use the latest stable version of Node.js (4.2 or higher)
 
+## How it works
+
+The module deserve an **upload** function which use `Promise`.
+The files are stored in the directory **uploads** at the top of your application.
+
+## Example 
 ```js
-var getMyAge = require('how-old-i-am');
+const upload = require('basic-upload');
 
-var myAge = getMyAge(1992, 8);
+// assuming an express app
+// don't forget to enable multipart/form-data 
+app.post('/pictures/new', function(req, res) {
+  const product = req.body.pictures;
+
+  upload({
+    file: req.files.picture, 
+    parentDirectory: 'pictures', 
+    dirname: product.ref
+  })
+    .then(filesUploaded => {
+      
+    })
+    .catch(err => {
+      console.error(err);
+    })
+});
 ```
-
-## API
-
-**function(birthYear, birthMonth)**
-
-- Your birth year
-- your birth month, note: remember it's like arrays (start from 0)

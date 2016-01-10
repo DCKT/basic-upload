@@ -1,11 +1,11 @@
 {
-  "name": "how-old-i-am",
+  "name": "basic-upload",
   "version": "1.0.0",
-  "description": "Get your age",
+  "description": "Simple file upload",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Thomas Deconinck",
-  "license": "ISC"
+  "license": "MIT"
 }
